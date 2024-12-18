@@ -10,11 +10,11 @@ public class Shedule {
         events = new ArrayList<>();
     }
 
-    public void addEvent(Event event){
+    public void addEvent(Event event){ //додає новий захід до списку
         events.add(event);
     }
 
-    public List<Event> getEventBydDate(LocalDate date){
+    public List<Event> getEventBydDate(LocalDate date){ //повертає список заходів, які відбуваються у вказану дату
         List<Event> result = new ArrayList<>();
         for (Event event : events){
             if(event.getDate().equals(date)) {
@@ -24,7 +24,7 @@ public class Shedule {
         return result;
     }
 
-    public List<Event> removePastEvents(){
+    public List<Event> removePastEvents(){ //видаляє всі минулі заходи зі списку
         LocalDateTime now = LocalDateTime.now();
         List<Event> toRemove = new ArrayList<>();
         for (Event event : events){
@@ -36,7 +36,7 @@ public class Shedule {
         return events;
     }
 
-    public void printAllEvents(){
+    public void printAllEvents(){ //виводить на екран усі заходи. Якщо список порожній, виводить повідомлення про це.
         if(events.isEmpty()){
             System.out.println("Розклад порожній.");
         }else {
